@@ -33,15 +33,15 @@ public class KlockiIPojemniki extends javax.swing.JFrame {
         double iloscKlockowDoSpakowania =  Double.parseDouble(jTextFieldIloscKlockowDoSpakowania.getText());
         double iloscKlockowWPojemniku = Double.parseDouble(jTextFieldloscKlockowWPojemniku.getText());
         
-        double iloscPudelek = 1;
+        double iloscPudelek;
         double iloscKlockowWOstatnimPudelku = 0;
-             
+             iloscPudelek =Math.ceil(iloscKlockowDoSpakowania / iloscKlockowWPojemniku );
         if(iloscKlockowDoSpakowania > iloscKlockowWPojemniku){
-            iloscPudelek =Math.floor( iloscKlockowDoSpakowania / iloscKlockowWPojemniku );
+            
             iloscKlockowWOstatnimPudelku = iloscKlockowDoSpakowania % iloscKlockowWPojemniku;
         }
         
-        jTextFieldIloscZapakowanychPudelek.setText(Double.toString(iloscKlockowWOstatnimPudelku > 0 ? iloscPudelek+1 : iloscPudelek));
+        jTextFieldIloscZapakowanychPudelek.setText(Double.toString(iloscPudelek));
         jTextFieldIloscWOstatnimPudelku.setText(Double.toString(iloscKlockowWOstatnimPudelku > 0 ? iloscKlockowWOstatnimPudelku : 0));
     }
 
