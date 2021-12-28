@@ -21,26 +21,25 @@ public class KlockiIPojemniki extends javax.swing.JFrame {
     public KlockiIPojemniki() {
         initComponents();
     }
-    
-    Action Zapakuj=new AbstractAction("Zapakuj"){
+
+    Action Zapakuj = new AbstractAction("Zapakuj") {
         @Override
-                public void actionPerformed(ActionEvent e){
-                    zapakuj();
-                }
+        public void actionPerformed(ActionEvent e) {
+            zapakuj();
+        }
     };
 
     public void zapakuj() {
-        double iloscKlockowDoSpakowania =  Double.parseDouble(jTextFieldIloscKlockowDoSpakowania.getText());
+        double iloscKlockowDoSpakowania = Double.parseDouble(jTextFieldIloscKlockowDoSpakowania.getText());
         double iloscKlockowWPojemniku = Double.parseDouble(jTextFieldloscKlockowWPojemniku.getText());
-        
+
         double iloscPudelek;
         double iloscKlockowWOstatnimPudelku = 0;
-             iloscPudelek =Math.ceil(iloscKlockowDoSpakowania / iloscKlockowWPojemniku );
-        if(iloscKlockowDoSpakowania > iloscKlockowWPojemniku){
-            
+        iloscPudelek = Math.ceil(iloscKlockowDoSpakowania / iloscKlockowWPojemniku);
+        if (iloscKlockowDoSpakowania > iloscKlockowWPojemniku) {
             iloscKlockowWOstatnimPudelku = iloscKlockowDoSpakowania % iloscKlockowWPojemniku;
         }
-        
+
         jTextFieldIloscZapakowanychPudelek.setText(Double.toString(iloscPudelek));
         jTextFieldIloscWOstatnimPudelku.setText(Double.toString(iloscKlockowWOstatnimPudelku > 0 ? iloscKlockowWOstatnimPudelku : 0));
     }
