@@ -40,7 +40,10 @@ public class LightFrame extends JFrame{
         panel.add(wylacz);
         
         add(panel);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+        
+        
         
         
     }
