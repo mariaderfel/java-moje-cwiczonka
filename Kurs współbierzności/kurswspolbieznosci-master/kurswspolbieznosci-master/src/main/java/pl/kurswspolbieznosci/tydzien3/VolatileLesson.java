@@ -1,0 +1,45 @@
+package pl.kurswspolbieznosci.tydzien3;
+
+import java.util.concurrent.atomic.AtomicLong;
+
+public class VolatileLesson {
+
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println("Starting...");
+
+        Counter counter = new Counter();
+        Runnable task = new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 100_000; ++i) {
+                    counter.increment();
+                }
+            }
+        };
+
+        Thread t0 = new Thread(task);
+        Thread t1 = new Thread(task);
+        Thread t2 = new Thread(task);
+        t0.start();
+        t1.start();
+        t2.start();
+
+
+        t0.join();
+        t1.join();
+        t2.join();
+
+        System.out.println("Current value is: " + counter.value);
+
+        System.out.println("DONE");
+    }
+
+    static class Counter {
+        volatile long value = 0;
+
+        public long increment() {
+            return value++;
+        }
+    }
+
+}
