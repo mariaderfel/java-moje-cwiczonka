@@ -1,0 +1,38 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.mycompany.udeny.zbuduj.wlasna.aplikacja;
+
+/**
+ *
+ * @author Marysia
+ */
+public class SuperChrome implements SuperBrowser {
+
+    String url;
+
+    @Override
+    public void gotoPage(String url) {
+        this.url = url;
+        System.out.println("Chrom url : " + this.url);
+    }
+
+    @Override
+    public void refreshPage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void bookmarkPage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void supergotoPage(String url) {
+        this.url = url;
+        System.out.println("*** SuperChrom url : " + this.url +" ***");
+    }
+
+}
