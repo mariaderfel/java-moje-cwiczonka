@@ -5,6 +5,9 @@
  */
 package com.mycompany.flightsearch;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 /**
  *
  * @author Marysia
@@ -22,5 +25,41 @@ public class Flight {
     public void flightInfo(Flight flight){
         System.out.println("Departure: " + this.departure + ", Arrival: "+ this.arrival);
     }
+       
+    @Override
+    public String toString() {
+        return "Flight{" + "departure=" + departure + ", arrival=" + arrival + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Flight other = (Flight) obj;
+        if (!Objects.equals(this.departure, other.departure)) {
+            return false;
+        }
+        if (!Objects.equals(this.arrival, other.arrival)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+
+    
     
 }

@@ -5,6 +5,8 @@
  */
 package com.mycompany.phone;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Marysia
@@ -19,6 +21,17 @@ public class Main {
         
 //        phone.getEvenSum(0,11);
         
-        phone.getNumber(11,16);
+//        phone.getNumber(11,16);
+    
+        ArrayList<String> list = new ArrayList<String>();
+        
+        list.add("test");
+        list.add("mouse");
+        
+//        System.out.println("LISTA: " + list);
+        
+        String element = list.get(1);
+        
+        System.out.println("Element: " + element);
     }
 }
