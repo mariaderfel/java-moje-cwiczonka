@@ -21,8 +21,8 @@ public class Main {
 //        flightDatabase.checkIfFlightExistsVoid("Miami", "Waszyngton");      
 //        flightDatabase.findFlihgtToCity("Praga");
 
-        flightDatabase.displayFlights(flightDatabase.findCity("Praga"));
-        
+//        flightDatabase.displayFlights(flightDatabase.findCity("Praga"));
+        flightDatabase.findCheapestFlight();
         
     }
     

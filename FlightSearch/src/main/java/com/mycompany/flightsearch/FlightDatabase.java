@@ -16,14 +16,14 @@ public class FlightDatabase {
     private ArrayList<Flight> flights = new ArrayList<Flight>();
 
     public FlightDatabase() {
-        this.flights.add(new Flight("Praga", "Berlin"));
-        this.flights.add(new Flight("Miami", "Waszyngton"));
-        this.flights.add(new Flight("Praga", "Berlin"));
-        this.flights.add(new Flight("Waszyngton", " Sidney"));
-        this.flights.add(new Flight("Praga", "Wiedeń"));
-        this.flights.add(new Flight("Sidney", "Wiedeń"));
-        this.flights.add(new Flight("Wiedeń", "Praga"));
-        this.flights.add(new Flight("Praga", "Miami"));
+        this.flights.add(new Flight("Praga", "Berlin", 1000));
+        this.flights.add(new Flight("Miami", "Waszyngton", 1200));
+        this.flights.add(new Flight("Praga", "Berlin", 800));
+        this.flights.add(new Flight("Waszyngton", " Sidney", 1300));
+        this.flights.add(new Flight("Praga", "Wiedeń", 900));
+        this.flights.add(new Flight("Sidney", "Wiedeń", 400));
+        this.flights.add(new Flight("Wiedeń", "Praga", 2000));
+        this.flights.add(new Flight("Praga", "Miami", 7450));
     }
 
     public boolean checkIfFlightExists(String departure, String arrival) {
@@ -69,12 +69,12 @@ public class FlightDatabase {
     }
 
     public ArrayList<Flight> findCity(String city) {
-        ArrayList<Flight> result =new ArrayList<>();
+        ArrayList<Flight> result = new ArrayList<>();
         Flight flight;
         for (int i = 0; i < this.flights.size(); i++) {
             flight = this.flights.get(i);
             if (flight.departure.equals(city) || flight.arrival.equals(city)) {
-                if(!result.contains(flight)){
+                if (!result.contains(flight)) {
                     result.add(flight);
                 }
             }
@@ -84,8 +84,7 @@ public class FlightDatabase {
 
     private ArrayList<Flight> getFlihgtToCity(String city) {
         ArrayList<Flight> flightsList = new ArrayList<>();
-        for (int i = 0; i < this.flights.size(); i++) {
-            Flight flight = this.flights.get(i);
+        for (Flight flight : flightsList) {
             if (flight.arrival.equals(city)) {
                 flightsList.add(flight);
             }
@@ -101,6 +100,17 @@ public class FlightDatabase {
         for (int i = 0; i < flightsList.size(); i++) {
             System.out.println(flightsList.get(i).toString());
         }
+    }
+
+    public void findCheapestFlight() {
+        Flight cheapestFlight = null;
+        ArrayList<Flight> flightsList = this.flights;
+        for (Flight flight : flightsList) {
+            if (cheapestFlight == null || !cheapestFlight.isCheaper(flight)) {
+                cheapestFlight = flight;
+            }
+        }
+        System.out.println("Najtańszy lot to: " + cheapestFlight.toString());
     }
 
 }
